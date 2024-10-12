@@ -23,18 +23,15 @@ for card in product_cards:
     trial_link = card.find('a', class_='uk-button-primary')['href']
 
     community_link="N/A"
-    temp = card.find('a', class_='uk-link uk-text-bold')
-    if temp:
-        print(temp.text.strip())
-        if temp.text.strip()=="Community":
-            community_link=temp['href']
     support_link = "N/A"
-    temp = card.find('a', class_='uk-link uk-text-bold')
+    temp = card.find('a', string='Support',target='_blank')
     if temp:
-        print(temp.text.strip())
-        if temp.text.strip() == "Support":
-            support_link = temp['href']
-    #temp = card.find('a', class_='uk-link')
+        print(temp)
+        support_link = temp['href']
+    temp2 = card.find('a', string='Community',target='_blank')
+    if temp2 and temp2.has_attr('href'):
+        print(temp2.text.strip())
+        community_link = temp2['href']
     product = {
         "Product Name": product_name,
         "Starting Letter": product_name[0].upper(),
