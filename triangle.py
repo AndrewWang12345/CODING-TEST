@@ -5,3 +5,8 @@ def triangle_3x4(): print('*\n**\n****') # it is impossible to make a perfect 3x
 #**
 #****
 
+# it is the same idea for the n by m triangle.
+def print_triangle(n, m):
+    for i in range(1, n + 1):
+        stars = (i * m) // n        
+        print('*' * stars)
